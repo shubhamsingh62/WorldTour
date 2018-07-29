@@ -5,7 +5,6 @@ import { SingleCountryComponent } from './single-country/single-country.componen
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { SharedModule } from '../shared/shared.module';
 import {NgxPaginationModule} from 'ngx-pagination'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -20,7 +19,6 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     NgxPaginationModule,
     BrowserAnimationsModule,
     Ng4LoadingSpinnerModule.forRoot(),
-    SharedModule,
     RouterModule.forChild([
       {path:"country/:name/:value",component:AllCountryComponent},
       {path:"name/:id",component:SingleCountryComponent}
