@@ -1,0 +1,116 @@
+<div class="card text-center " style="background-color: black;">
+
+  <div class="card-header two ">
+    <ul class="nav nav-tabs card-header-tabs ">
+      <li class="nav-item">
+        <a class="nav-link" (click)="scrollTo('Basic')" style="color:orange;font-weight: bold;">Basic Detail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="scrollTo('geo')" style="color:orange;font-weight: bold;">Geographic Detail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " (click)="scrollTo('cu')" style="color:orange;font-weight:bold;">currency&lang</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="w-100 h-100 d-flex cont" *ngFor="let data of singleData ">
+  <img src="{{data.flag}}" class="w-100 h-100">
+  <div class="hero-text" style="background-color: aliceblue;">
+    <h1 class="text-center"> {{data.name}}</h1>
+  </div>
+</div>
+
+
+<div class="card text-center" style="background-color: black;">
+
+  <div *ngIf="singleData">
+    <div class=" container-fluid bg-success " *ngFor="let country of singleData " style="padding-top:70px;padding-bottom:70px">
+      <div class="title" id="Basic">Basic Details</div>
+      <div class="row">
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].capital">
+          <div class="header">Capital</div>
+          <div class="content">{{ singleData[0].capital }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].demonym">
+          <div class="header">Demonym</div>
+          <div class="content">{{ singleData[0].demonym }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="country.region">
+          <div class="header">Region</div>
+          <div class="content">{{ country.region }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="country.subregion">
+          <div class="header">Subregion</div>
+          <div class="content">{{ country.subregion }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="country.nativeName">
+          <div class="header">Native Name</div>
+          <div class="content">{{ country.nativeName }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="country.numericCode">
+          <div class="header">Numeric Code</div>
+          <div class="content">{{ country.numericCode }}</div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class=" container-fluid bg-warning " *ngFor="let country of singleData " style="padding-top:50px;padding-bottom:50px">
+      <div class="title" id="geo">Geographic Detail</div>
+      <div class="row">
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].population">
+          <div class="header">Population</div>
+          <div class="content">{{ singleData[0].population }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].area">
+          <div class="header">area</div>
+          <div class="content">{{ singleData[0].area }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].borders.length>0">
+          <div class="header">Borders</div>
+          <div class="content">{{ singleData[0].borders }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].timezones.length>0">
+          <div class="header">Timezones</div>
+          <div class="content">{{ singleData[0].timezones }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].latlng.length>0">
+          <div class="header">Long&lat</div>
+          <div class="content">{{ singleData[0].latlng }}</div>
+        </div>
+        <div class="col-12 col-md-6 item" *ngIf="singleData[0].regionalBlocs.length>0">
+          <div class="header">Regionalblocs</div>
+          <div class="content">{{ singleData[0].regionalBlocs[0].name }}</div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class=" container-fluid bg-secondary " style="padding-top:70px;padding-bottom:70px">
+      <div class="row">
+        <div class="col-12 col-md-6 item">
+          <div class=" title text-center" id="cu">CUR
+
+            <div class="content text-center" style="padding: 10%; font-weight: bold;" *ngFor="let currency of singleData[0].currencies">
+              <a [routerLink]="['/country','currency',currency.code]">{{ currency.name }}</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-12 col-md-6 item">
+          <div class=" title ">Lang</div>
+          <div class="content " style="padding: 8%; font-weight: bold; margin-right: 49%;" *ngFor="let lang of singleData[0].languages">
+            <a [routerLink]="['/country','lang',lang.iso639_2]">{{ lang.name }}</a>
+          </div>
+
+        </div>
+      </div>
+      <a class="btn btn-success" href="javascript:void(0)" (click)="goBack()" style="margin-top: 3%;">
+        goBack
+      </a>
+    </div>
+
+  </div>

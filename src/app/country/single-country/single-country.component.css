@@ -1,0 +1,54 @@
+
+  .one{
+      padding:12%;
+      background-color:#f5fcff;
+  }
+ /* .head{
+      text-decoration: underline;
+      margin-right: 80%;
+      margin-bottom: 20%;
+  }*/
+  .title{
+      margin-bottom: 3%;
+      margin-right: 52%;
+      text-decoration: underline;
+      font-weight: bold;
+      font-size: 1.8rem;
+
+  }
+  .item {
+    margin-bottom: 1.75rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+}
+.content{
+    font-weight: 300;
+    font-size: 1rem;
+    margin-left: -1px;
+    padding: 2%;
+    text-decoration: none;
+}
+.header{
+    text-decoration: none;
+}
+.hero-text {
+    font-family: 'Lobster', cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cont {
+    position: relative;
+    text-align: center;
+    color: black;
+}
+.two{
+    cursor:pointer;
+   
+}

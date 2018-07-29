@@ -1,0 +1,36 @@
+.one{
+    font-size: 300%;
+    font-family: 'Gaegu', cursive;
+}
+.row1{
+    margin: 5em;
+}
+/*@media only screen and (max-width: 900px) {
+    .two{ margin: 0%;}
+}*/
+span {
+    color: skyblue;
+    font-weight: bold;
+}
+.hero-image {
+    height: 100% !important; 
+    width:100% !important;        
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Gaegu', cursive;
+    background-size: cover;        
+    box-shadow: 0 4px 8px 0 #4ABDAC, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.hero-text {
+    font-family: 'Lobster', cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cont {
+    position: relative;
+    text-align: center;
+    color: orange;
+}

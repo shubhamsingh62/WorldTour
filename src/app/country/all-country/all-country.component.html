@@ -1,0 +1,62 @@
+<div class="cont">
+  <div *ngIf="region">
+    <img src="assets/{{region}}.gif" alt="Region Flag" class="fluid-image hero-image">
+    <div class="hero-text">
+      <h1 class="text-center">{{region}}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row row12">
+    <div class="col" *ngFor="let country of Allreigon | paginate: { itemsPerPage: 8, currentPage: p }">
+
+      <div class="card" style="width: 18rem; margin:1.2%;">
+        <img class="card-img-top" src="{{country.flag}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span>Country Name</span>
+          </h5>
+          <p class="card-text"> {{country.name}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <span>Capital:-</span>
+            <br/>{{country.capital}}</li>
+          <li class="list-group-item">
+            <span>Subregion:-</span>
+            <br/>{{country.subregion}}</li>
+          <li class="list-group-item">
+            <span>Population:-</span>
+            <br/>{{country.population}}</li>
+          <li class="list-group-item" *ngFor="let time of country.timezones">
+
+            {{time}} </li>
+
+          <li class="list-group-item">
+            <span>languages:-</span>
+            <br/>
+            <span *ngFor="let lang of country.languages; let isLast=Last">
+              <a [routerLink]="['/country','lang',lang.iso639_2]">{{lang.name|json}}{{isLast ? '' : ', '}}</a>
+            </span>
+          </li>
+
+          <li class="list-group-item">
+            <span>currencies:-</span>
+            <br/>
+            <span *ngFor="let currency of country.currencies">
+              <a [routerLink]="['/country','currency',currency.code]">{{currency.name|json}}{{$first ? '' : $last ? ' ' : ', '}} </a>
+            </span>
+          </li>
+        </ul>
+        <div class="card-body">
+          <a [routerLink]="['/name',country.name]" class="btn btn-primary">More Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="p = $event" align="middle"></pagination-controls>
+  <a class="btn btn-success" href="javascript:void(0)" (click)="goBack()" style="margin-top: 3%; margin-left: 10%;">
+      goBack
+      </a>
+</div>
